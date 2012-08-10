@@ -1,0 +1,213 @@
+#!/usr/bin/python
+
+# By hads <epgsnoop@nice.net.nz>
+# Original author djc
+# Released under the MIT license
+
+import os
+import sys
+from datetime import datetime
+import time
+import signal
+import logging
+import ConfigParser
+
+from optparse import OptionParser
+
+import epgsnoop.processors
+import epgsnoop.outputters
+from epgsnoop.base import *
+from epgsnoop.channels import get_channels
+from epgsnoop.snooper import Snooper
+from epgsnoop.tuner import Tuner
+
+log = logging.getLogger(NAME)
+
+# Ensure we don't leave processes lying around
+def handle_sigint(signum, frame):
+    if snooper:
+        snooper.kill()
+    if os.path.exists(PIDFILE):
+        os.remove(PIDFILE)
+    sys.stderr.write("\n")
+    sys.exit(1)
+
+if __name__ == '__main__':
+
+    # Check for dvbsnoop
+    if os.system('which dvbsnoop 2>&1 > /dev/null') != 0:
+        log.critical('The dvbsnoop program (http://dvbsnoop.sourceforge.net/) is required.')
+        log.critical('On Debian/Ubuntu based systems this can be installed with `apt-get install dvbsnoop`\n')
+        sys.exit(1)
+    
+    # Setup command line options
+    parser = OptionParser(version='%prog ' + str(VERSION))
+    parser.set_defaults(quiet=False, debug=False, adapter='0', outputter='XMLTV', tune_retries=1, polarity='h', symbol_rate='22500')
+    parser.add_option('-q', '--quiet', action='store_true', dest='quiet',
+        help='be quiet, don\'t output status information.')
+    parser.add_option('--debug', action='store_true', dest='debug',
+        help='output debugging information.')
+    parser.add_option('-u', '--user', dest='user',
+        help='drop privileges to USER (when running as root).')
+    parser.add_option('--config-dir', dest='config_dir',
+        help='Use configuration directory CONFIG_DIR.')
+    parser.add_option('--adapter',
+        help='use DVB adapter ADAPTER (default 0).')
+    parser.add_option('--outputter',
+        help='use outputter OUTPUTTER (default XMLTV).')
+    parser.add_option('--processors',
+        help='process results with PROCESSORS - a comma seperated list.')
+    parser.add_option('--tune',
+        help='tune to specified frequency e.g. 12456 for Freeview, 12671 for that pay TV service.')
+    parser.add_option('--lnb',
+        help='use specified LNB offset e.g. 10750 or 11300 for older LNBs')
+    parser.add_option('--polarity',
+        help='use specified POLARITY for tuning (h or v, default h)')
+    parser.add_option('--symbol-rate',
+        help='use specified SYMBOL-RATE for tuning (default 22500)')
+    parser.add_option('--tune-retries', type=int,
+        help='number of time to retry the tuner (5 min intervals) if tuning fails (default 1).')
+
+    (options, args) = parser.parse_args()
+
+    if options.debug:
+        log.setLevel(logging.DEBUG)
+
+    if options.quiet:
+        log.setLevel(logging.WARNING)
+
+    if options.tune and not options.lnb:
+        log.critical('Option tune requires option lnb')
+        sys.exit(7)
+
+    if options.tune:
+        if os.system('which dvbtune 2>&1 > /dev/null') != 0:
+            log.critical('The dvbtune program is required for tuning. On Debian/Ubuntu')
+            log.critical('systems this can be installed with `apt-get install dvbtune`\n')
+            sys.exit(1)
+
+    # Drop privileges, setup groups and homedir
+    if options.user:
+        if os.getuid() != 0:
+            parser.error("option -u requires root privileges")
+        import pwd, grp
+        groups = []
+        (username, password, uid, gid, realname, homedir, shell) = pwd.getpwnam(options.user)
+        for (gr_name, gr_passwd, gr_gid, gr_mem) in grp.getgrall():
+            if username in gr_mem:
+                groups.append(gr_gid)
+        os.setgid(gid)
+        os.setgroups(groups)
+        os.environ['HOME'] = homedir
+        os.setuid(uid)
+    
+    if options.config_dir:
+        CONFIG_DIR = options.config_dir
+    else:
+        CONFIG_DIR = os.path.expanduser('~/.%s/' % NAME)
+    
+    PIDFILE = '/tmp/%s.pid' % NAME
+    CHANNEL_FILE = os.path.join(CONFIG_DIR, 'channels.conf')
+    
+    # Create config directory if it doesn't exist
+    if not os.path.isdir(CONFIG_DIR):
+        try:
+            os.mkdir(CONFIG_DIR)
+        except:
+            log.critical("Failed to create config directory: %s", CONFIG_DIR)
+            sys.exit(2)
+
+    config = ConfigParser.SafeConfigParser()
+    config.read(os.path.join(CONFIG_DIR, 'epgsnoop.conf'))
+
+    # Read in channel data
+    if os.path.isfile(CHANNEL_FILE):
+        channels = get_channels(CHANNEL_FILE)
+        if not channels:
+            log.critical("No channels found.")
+            sys.exit(2)
+    else:
+        log.critical("Channel file '%s' not found.", CHANNEL_FILE)
+        sys.exit(2)
+
+    try:
+        outputter = getattr(epgsnoop.outputters, options.outputter)
+    except AttributeError:
+        log.warning("Outputter '%s' not found using default (XMLTV).", options.outputter)
+        outputter = getattr(epgsnoop.outputters, 'XMLTV')
+
+    processors = []
+    if config.has_option('general', 'processors'):
+        for p in config.get('general', 'processors').split(','):
+            try:
+                processor = getattr(epgsnoop.processors, p)
+            except AttributeError:
+                log.warning("Processor '%s' not found, ignoring.", p)
+            else:
+                processors.append(processor(config))
+    
+    if options.processors:
+        processors = []
+        for p in options.processors.split(','):
+            try:
+                processor = getattr(epgsnoop.processors, p)
+            except AttributeError:
+                log.warning("Processor '%s' not found, ignoring.", p)
+            else:
+                processors.append(processor(config))
+    
+    # Test or write the pid file
+    if os.path.exists(PIDFILE):
+        log.critical('It appears that %s is already running.', NAME)
+        log.critical('If this is not the case then please delete %s', PIDFILE)
+        log.critical('You may also want to check for any left over dvbsnoop processes')
+        sys.exit(2)
+    else:
+        pidf = open(PIDFILE, "w")
+        print >>pidf, os.getpid()
+        pidf.close()
+    
+    # Setup sigint handler, kill subprocess on ^C
+    signal.signal(signal.SIGINT, handle_sigint)
+
+    if options.tune:
+        tuner = Tuner(options.adapter, options.lnb)
+        i = 0
+        while i < options.tune_retries:
+            tuned = tuner.tune(options.tune, options.polarity, options.symbol_rate)
+            if tuned:
+                break
+            i += 1
+            if i < options.tune_retries:
+                time.sleep(300)
+        else:
+            if os.path.exists(PIDFILE):
+                os.remove(PIDFILE)
+            log.critical('Tuning failed')
+            sys.exit(8)
+
+    snooper = Snooper(adapter=options.adapter, quiet=options.quiet)
+    programs = snooper.snoop()
+    if options.tune:
+        tuner.free()
+
+    log.info('\nTotal programs:     %s' % len(programs))
+
+    for program in programs:
+        try:
+            program['channel'] = channels[program['pid']]
+        except KeyError:
+            log.debug("Ignoring program data for PID '%s' (entry not found in channels.conf)", program['pid'])
+
+    for processor in processors:
+        programs = processor(programs)
+
+    output = outputter(config)
+    print output(channels, programs)
+    
+    # clean up the pid file
+    if os.path.exists(PIDFILE):
+        os.remove(PIDFILE)
+    
+    sys.exit(0)
+

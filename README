@@ -1,0 +1,11 @@
+Installation
+============
+
+Run `python setup.py install`
+
+Configuration
+=============
+
+Copy one of the channels.conf files and epgsnoop.sqlite to
+~/.epgsnoop/ (or your preferred config location, that is the
+default).

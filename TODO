@@ -1,0 +1,38 @@
+General
+=======
+
+- Better configuration/invocation of processors and outputters
+- Problem with single quotes?
+- Status display in processors
+
+Processors
+==========
+
+- Add audio tags
+- Speed up CategoryDb and Imdb processor
+- Move categories/ratings to database?
+- More details from imdb
+- Check year for IMDB matches - getting some false positives
+- Fix 'Prime Presents:' shows
+
+Channel packages
+================
+
+In future we may try and make some better configuration with
+questions based on what packages people can receive.
+
+- Sky
+- Sky Movies
+- Sky Rialto Channel
+- Sky Sport
+- Sky Rugby Channel
+- Sky Digital Music
+- Sky Playin'TV Games
+- Sky Arts Channel
+- Sky MindGames
+- Sky WTV
+- Sky Star Plus
+- Freeview
+- Prime
+- Maori TV
+- ?

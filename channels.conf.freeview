@@ -1,0 +1,43 @@
+###
+#
+# channels.conf.freeview
+#
+# This file is part of epgsnoop
+#
+# Entries are in the format show below;
+#
+# ***********************************
+# *** The line below is important ***
+# *** it is used by epgsnoop.     ***
+# ***********************************
+# CHANNEL_ID|XMLTVID|NAME|ICON|WEBSITE|CHANNEL_NUMBER
+#
+# Note that the channel number currently serves no purpose.
+#
+###
+
+1025|maori-tv.freeviewnz.tv|Maori TV|maori_tv.jpg|http://www.freeviewnz.tv/|5
+
+1035|tv1.freeviewnz.tv|One|1.jpg|http://www.tv1.co.nz/|1
+1036|tv2.freeviewnz.tv|TV 2|2.jpg|http://www.tv2.co.nz/|2
+1038|tvnz7.freeviewnz.tv|TVNZ 7|tvnz7.jpg|http://www.freeviewnz.tv/|25
+
+1903|sportextra.freeviewnz.tv|SportExtra|sportextra.png|http://www.freeviewnz.tv/|20
+1904|tvnz6.freeviewnz.tv|TVNZ 6|tvnz6.png|http://www.freeviewnz.tv/|6
+#1908|tv1.freeviewnz.tv|One|1.png|http://www.freeviewnz.tv/|1 # HAM
+#1909|tv1.freeviewnz.tv|One|1.png|http://www.freeviewnz.tv/|1 # AKL
+#1910|tv1.freeviewnz.tv|One|1.png|http://www.freeviewnz.tv/|1 # CHC
+
+1920|tv3.freeviewnz.tv|TV 3|3.jpg|http://www.tv3.co.nz/|3
+1921|c4.freeviewnz.tv|C4|c4.jpg|http://www.c4tv.co.nz/|4
+1922|stratos.freeviewnz.tv|Stratos|stratos.png|http://www.stratostv.co.nz/|21
+1923|parliament.freeviewnz.tv|Parliament|parliament.jpg|http://www.freeviewnz.tv/|22
+1924|cuetv.freeviewnz.tv|CUE TV|southland_tv.jpg|http://www.cuetv.co.nz/|23
+1925|maoritv.freeviewnz.tv|Maori TV|maori_tv.jpg|http://www.maoritelevision.com/|24
+1926|tv3-plus1.freeviewnz.tv|TV 3 PLUS1|3.jpg|http://www.freeviewnz.tv/|
+1928|prime.freeviewnz.tv|Prime|prime.jpg|http://www.primetv.co.nz/|
+1929|rnz-national.freeviewnz.tv|RNZ National|||
+
+1930|rnz-concert.freeviewnz.tv|RNZ Concert|||
+1935|georgefm.freeviewnz.tv|GeorgeFM|||
+1936|basefm.freeviewnz.tv|BaseFM|||

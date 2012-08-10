@@ -1,0 +1,181 @@
+###
+#
+# channels.conf.sky
+#
+# This file is part of epgsnoop
+#
+# Entries are in the format show below;
+#
+# ***********************************
+# *** The line below is important ***
+# *** it is used by epgsnoop.     ***
+# ***********************************
+# CHANNEL_ID|XMLTVID|NAME|ICON|WEBSITE|CHANNEL_NUMBER
+#
+# Note that the channel number currently serves no purpose.
+#
+###
+
+#205|maori-tv.sky.co.nz|Maori TV|http://www.maoritelevision.com/
+
+#319|preview.sky.co.nz|Preview||http://www.sky.co.nz/
+#330||EPG Background Audio
+
+#607||Grooves iTV
+#679|playin-tv.sky.co.nz|Playin'TV|playing_tv.jpg
+#680|weather-channel.sky.co.nz|Weather|weather_channel.jpg
+#681|mindgames.sky.co.nz|MindGames|mind_games.jpg
+#683||Panasonic
+#684||Hell Pizza
+#685||eMuse
+
+#1000|preview.sky.co.nz|Preview||http://www.sky.co.nz/
+1001|sky1.sky.co.nz|the BOX|thebox.jpg|http://www.sky.co.nz/|5
+1002|movies1.sky.co.nz|SKY Movies 1|sky_movies1.jpg|http://www.sky.co.nz/|20
+1003|uktv.sky.co.nz|UKTV|uktv.jpg|http://www.sky.co.nz/|6
+1004|mgm.sky.co.nz|MGM|mgm.jpg|http://www.sky.co.nz/|23
+1005|rugby.sky.co.nz|Rugby Channel|rugby_channel.jpg|http://www.sky.co.nz/|36
+1006|cartoon-network.sky.co.nz|Cartoon Network|cartoon_network.jpg|http://www.sky.co.nz/|42
+1007|juice.sky.co.nz|Juice TV|juice_tv.jpg|http://www.sky.co.nz/|62
+1008|sport1.sky.co.nz|SKY Sport 1|sky_sport1.jpg|http://www.sky.co.nz/|30
+1009|sport2.sky.co.nz|SKY Sport 2|sky_sport2.jpg|http://www.sky.co.nz/|31
+
+1010|espn.sky.co.nz|ESPN|espn.jpg|http://www.sky.co.nz/|34
+1011|trackside.sky.co.nz|Trackside|trackside.jpg|http://www.sky.co.nz/|35
+1012|nat-geographic.sky.co.nz|Nat Geographic|national_geographic.jpg|http://www.sky.co.nz/|72
+1013|discovery.sky.co.nz|Discovery|discovery_channel.jpg|http://www.sky.co.nz/|70
+1014|animal-plant.sky.co.nz|Animal Planet|animal_planet.jpg|http://www.sky.co.nz/|75
+1015|cnn.sky.co.nz|CNN|cnn.jpg|http://www.sky.co.nz/|56
+1016|history-channel.sky.co.nz|History Channel|history_channel.jpg|http://www.sky.co.nz/|73
+1017|sky-news.sky.co.nz|SKY News|sky_news.jpg|http://www.sky.co.nz/|90
+1018|prime.sky.co.nz|Prime|prime.jpg|http://www.primetv.co.nz/|4
+1019|j2.sky.co.nz|J2|j2.jpg|http://www.sky.co.nz/|63
+
+1020|rialto.sky.co.nz|Rialto|rialto.jpg|http://www.rialtochannel.co.nz/|25
+1021|e.sky.co.nz|E!|e.jpg|http://www.sky.co.nz/|11
+1022|living-channel.sky.co.nz|Living Channel|living_channel.jpg|http://www.livingchannel.co.nz/|8
+1023|movies2.sky.co.nz|SKY Movies 2|sky_movies2.jpg|http://www.sky.co.nz/|21
+1024|nickelodeon.sky.co.nz|Nickelodeon|nick.jpg|http://www.sky.co.nz/|41
+1025|maori-tv.sky.co.nz|Maori TV|maori_tv.jpg|http://www.sky.co.nz/|19
+1026|bbc-world.sky.co.nz|BBC World|bbc_world.jpg|http://www.sky.co.nz/|93
+1027|disney-channel.sky.co.nz|Disney Channel|disney_channel.jpg|http://www.sky.co.nz/|40
+1028|fashion-tv.sky.co.nz|Fashion TV|fashion_tv.jpg|http://www.sky.co.nz/|17
+#1028|cuetv.sky.co.nz|CUE TV|southland_tv.jpg|http://www.cuetv.co.nz/|110
+1029|arts-channel.sky.co.nz|Arts Channel|arts_channel.jpg|http://www.theartschannel.co.nz/|79
+
+#1030||AUX
+1031|tv1.sky.co.nz|TV One|1.jpg|http://www.tv1.co.nz/|1
+1032|tv2.sky.co.nz|TV 2|2.jpg|http://www.tv2.co.nz/|2
+1033|tv3.sky.co.nz|TV 3|3.jpg|http://www.tv3.co.nz/|3
+1034|c4.sky.co.nz|C4|c4.jpg|http://www.c4tv.co.nz/|64
+
+1040|alttv.sky.co.nz|Alt TV|alt_tv.jpg|http://www.alttv.co.nz/|65
+1041|vibe.sky.co.nz|Vibe|vibe.jpg|http://www.sky.co.nz/|7
+1042|comedy-central.sky.co.nz|Comedy Central|comedy-central.jpg|http://www.sky.co.nz/|10
+1044|tcm.sky.co.nz|TCM|tcm.jpg|http://www.sky.co.nz/|24
+1045|playhouse.sky.co.nz|Playhouse|playhouse.jpg|http://www.sky.co.nz/|45
+1048|sport3.sky.co.nz|SKY Sport 3|sky_sport3.jpg|http://www.sky.co.nz/|32
+1049|crime-investigation.sky.co.nz|Crime & Investigation|crime_investigation.jpg|http://www.sky.co.nz/|71
+
+#1050|preview.sky.co.nz|Preview|http://www.sky.co.nz/
+1052|food-tv.sky.co.nz|Food Television|food_tv.jpg|http://www.foodtv.co.nz/|9
+1053|movie-greats.sky.co.nz|Sky Movie Greats|sky_movie_greats.jpg|http://www.sky.co.nz/|22
+1054|sport-highlights.sky.co.nz|Sky Sport Highlights||http://www.sky.co.nz/|33
+1055|prime.sky.co.nz|Prime|prime.jpg|http://www.primetv.co.nz/|4
+1056|prime.sky.co.nz|Prime|prime.jpg|http://www.primetv.co.nz/|4
+1039|mtv.sky.co.nz|MTV|mtv.jpg|http://www.mtv.co.nz/|14
+1057|fox-news.sky.co.nz|Fox News|fox_news.jpg|http://www.sky.co.nz/|92
+1059|documentary.sky.co.nz|Documentary|documentary.jpg|http://www.sky.co.nz/|74
+
+1060|box-office.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|200
+1061|box-office201.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|201
+1062|box-office202.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|202
+1063|box-office203.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|203
+1064|box-office204.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|204
+1065|box-office205.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|205
+1066|box-office206.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|206
+1067|box-office207.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|207
+1068|box-office208.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|208
+1069|box-office209.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|209
+
+1070|box-office210.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|210
+1071|box-office211.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|211
+1072|box-office212.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|212
+1073|box-office213.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|213
+1074|box-office214.sky.co.nz|SKY Box Office|sky_box_office.jpg|http://www.sky.co.nz/|214
+1075|playboy.sky.co.nz|Playboy|playboy_tv.jpg|http://www.playboytv.co.nz/|217
+1076|fresh.sky.co.nz|Fresh!|fresh.jpg|http://www.freshtelevision.co.nz/|218
+1077|spice-excess.sky.co.nz|Spice Xcess|spice_excess.jpg|http://www.spicexcess.co.nz/|219
+1078|ktv1.sky.co.nz|KTV 1|ktv1.jpg|http://www.ktv.co.nz/|300
+1079|ktv2.sky.co.nz|KTV 2|ktv2.jpg|http://www.ktv.co.nz/|301
+
+1080|jtv.sky.co.nz|JTV|jtv.jpg|http://www.wtv.co.nz/|302
+1081|ctv1.sky.co.nz|CTV 1|ctv1.jpg|http://www.wtv.co.nz/|303
+1082|ctv2.sky.co.nz|CTV 2|ctv2.jpg|http://www.wtv.co.nz/|304
+1083|ctv3.sky.co.nz|CTV 3|ctv3.jpg|http://www.wtv.co.nz/|305
+1084|ctv4.sky.co.nz|CTV 4|ctv4.jpg|http://www.wtv.co.nz/|306
+1085|ctv5.sky.co.nz|CTV 5|ctv5.jpg|http://www.wtv.co.nz/|307
+1086|ctv6.sky.co.nz|CTV 6|ctv6.jpg|http://www.wtv.co.nz/|308
+1087|ctv7.sky.co.nz|CTV 7|ctv7.jpg|http://www.wtv.co.nz/|309
+1088|real-good-life.sky.co.nz|Real Good Life||http://www.wtv.co.nz/|
+1089|new-supremo.sky.co.nz|New Supremo||http://www.wtv.co.nz/|
+
+1091|star-plus-hindi.sky.co.nz|Star Plus Hindi|http://www.sky.co.nz/|315
+1093|cctv9.sky.co.nz|CCTV-9|cctv9.jpg|http://www.sky.co.nz/|310
+1095|cnbc.sky.co.nz|CNBC||http://www.sky.co.nz/|
+#1096
+#1097
+1098|country99.sky.co.nz|Country 99||http://www.country99tv.co.nz/|99
+1099|shine.sky.co.nz|Shine|shine.jpg|http://www.shinetv.co.nz/|111
+
+1101|national.radio.sky.co.nz|National Radio|national_radio.jpg|
+1102|concert-fm.radio.sky.co.nz|Concert FM|concert_fm.jpg|
+1103|nui-fm.radio.sky.co.nz|Niu FM|niu_fm.jpg|
+1104|george-fm.radio.sky.co.nz|George FM|george_fm.jpg|
+1105|tahu-fm.radio.sky.co.nz|Tahu FM|tahu_fm.jpg|
+1107|calvary.radio.sky.co.nz|Calvary|calvary.jpg|
+
+1100|kiwi.music.sky.co.nz|Kiwi|digital_music.jpg|http://www.sky.co.nz/|
+1120|nz-chart.music.sky.co.nz|NZ Chart|digital_music.jpg|http://www.sky.co.nz/|
+1121|pop.music.sky.co.nz|Pop|digital_music.jpg|http://www.sky.co.nz/|
+1122|smooth.music.sky.co.nz|Smooth|digital_music.jpg|http://www.sky.co.nz/|
+1123|grooves.music.sky.co.nz|Grooves|digital_music.jpg|http://www.sky.co.nz/|
+1124|jazz.music.sky.co.nz|Jazz|digital_music.jpg|http://www.sky.co.nz/|
+1125|house.music.sky.co.nz|House|digital_music.jpg|http://www.sky.co.nz/|
+1126|fifties-sixties.music.sky.co.nz|50's & 60's|digital_music.jpg|http://www.sky.co.nz/|
+1127|party.music.sky.co.nz|Party|digital_music.jpg|http://www.sky.co.nz/|
+1128|rock.music.sky.co.nz|Rock|digital_music.jpg|http://www.sky.co.nz/|
+1129|country.music.sky.co.nz|Country|digital_music.jpg|http://www.sky.co.nz/|
+
+1130|classical.music.sky.co.nz|Classical|digital_music.jpg|http://www.sky.co.nz/|
+1131|kids.music.sky.co.nz|Kids|digital_music.jpg|http://www.sky.co.nz/|
+1132|blues.music.sky.co.nz|Blues|digital_music.jpg|http://www.sky.co.nz/|
+1133|special.music.sky.co.nz|Special|digital_music.jpg|http://www.sky.co.nz/|
+
+1191|playin-tv.sky.co.nz|Playin'TV|playing_tv.jpg|http://www.sky.co.nz/|
+1192|weather-channel.sky.co.nz|Weather|weather_channel.jpg|http://www.sky.co.nz/|
+1193|mindgames.sky.co.nz|MindGames|mind_games.jpg|http://www.sky.co.nz/|
+#1197||Ad Tracks
+#1198||Auxiliary
+#1199||VCR SCART Input
+
+#1203||My Interaction
+#1222||Panasonic
+#1294||Hell Pizza
+
+#1483
+#1485||eMuse
+
+#1901||Test 1
+#1902||Test 2
+#1903||Test 3
+#1904||Test 4
+
+1911|firecall.sky.co.nz|Firecall
+#1912||Ambulance
+#1920|tv3.sky.co.nz|TV 3|3.jpg|http://www.tv3.sky.co.nz/
+#1921|c4.sky.co.nz|C4|c4.jpg|http://www.c4.sky.co.nz/
+1922|stratos.sky.co.nz|Stratos|stratos.png|http://www.stratostv.co.nz/|
+1923|parliament.sky.co.nz|Parliament|||
+#1929||Radio NZ National
+#1930||Radio NZ Concert
